@@ -2,39 +2,51 @@ doctype html
 html
   head
     title Finereact Module Demo
-    //link(rel='stylesheet', href='/stylesheets/style.css')
+    //
+
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/5.28.2/jsoneditor.min.css')
   body
-    h1 Finereact Module Demo
-    p Press one of the buttons below to pick a category
-    button(id="clientButton") Client
-    button(id="loanButton") Loan
-    button(id="loanProductButton") Loan Product
-    br
-    div(id="jsoneditor" style='width: 500px; height: 400px;')
-    button(class="actionButton", action="add") add
-    button(class="actionButton", action="find") find
-    button(class="actionButton", action="findOne") findOne
-    button(class="actionButton", action="template") template
-    button(class="actionButton", action="approve") approve
-    button(class="actionButton", action="reject") reject
-    button(class="actionButton", action="withdraw") withdraw
-    br
-    p Sample Code
-    pre
-        |const finereact = require("node-finereact");
-        |finereact.init({
-        |    url: "https://13.250.150.80/fineract-provider/api/v1/",
-        |    username: "mifos",
-        |    password: "password"
-        |});
-    pre(id="codeArea")
-    br
-    button(id="sendButton") Send
-    br
-    p Response:
-    pre(id="displayArea")
+    div.container
+        h1 Finereact Module Demo
+        div.row
+            div.col-sm-6
+                p Press one of the buttons below to pick a category
+                button(id="clientButton" class="btn-primary") Client
+                button(id="loanButton" class="btn-primary") Loan
+                button(id="loanProductButton" class="btn-primary") Loan Product
+                br
+                div(id="jsoneditor" style='width: 500px; height: 400px;')
+                button(class="actionButton btn-primary", action="add") add
+                button(class="actionButton btn-primary", action="find") find
+                button(class="actionButton btn-primary", action="findOne") findOne
+                button(class="actionButton btn-primary", action="template") template
+                button(class="actionButton loanActions hidden btn-primary", action="approve") approve
+                button(class="actionButton loanActions hidden btn-primary", action="reject") reject
+                button(class="actionButton loanActions hidden btn-primary", action="withdraw") withdraw
+                br
+                br
+                button(id="sendButton" class="btn-primary") Send To Server
+            div.col-sm-6
+                br
+                p Sample Code
+                pre
+                    |const finereact = require("node-finereact");
+                    |finereact.init({
+                    |    url: "https://13.250.150.80/fineract-provider/api/v1/",
+                    |    username: "mifos",
+                    |    password: "password"
+                    |});
+                pre(id="codeArea")
+                br
 
+  
+        p Response:
+        pre(id="displayArea")
+
+    script( src="https://code.jquery.com/jquery-3.3.1.slim.min.js", integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=", crossorigin="anonymous")
+
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
     script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js")
     script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/5.28.2/jsoneditor.min.js")
     script(type="text/javascript" src="public.js")

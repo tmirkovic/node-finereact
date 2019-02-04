@@ -1,4 +1,4 @@
-/* global io, JSONEditor */
+/* global io, JSONEditor, $ */
 "use strict";
 
 //simple demo where you press a button to trigger socket events
@@ -12,6 +12,12 @@ function setGui() {
     setCodeView();
 
     editor.expandAll();
+
+    if (mode === "loan") {
+        $(".loanActions").removeClass("hidden");
+    } else {
+        $(".loanActions").addClass("hidden");
+    }
 }
 
 function setCodeView() {
