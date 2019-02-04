@@ -1,0 +1,24 @@
+{
+  "name": "node-finereact",
+  "version": "1.0.0",
+  "description": "Module that wraps the Apache Finereact API",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "demo": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.2.0",
+    "nock": "^10.0.6"
+  }
+}

@@ -1,0 +1,115 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/client.json",
+    "type": "object",
+    "title": "Add Client Schema",
+    "required": [
+        "officeId",
+        "firstname",
+        "lastname",
+        "active"
+    ],
+    "properties":
+    {
+        "officeId":
+        {
+            "$id": "#/properties/officeId",
+            "type": "integer",
+            "title": "The Officeid Schema",
+            "default": 0,
+            "examples": [
+                1
+            ]
+        },
+        "firstname":
+        {
+            "$id": "#/properties/firstname",
+            "type": "string",
+            "title": "The Firstname Schema",
+            "default": "",
+            "examples": [
+                "Petra"
+            ]
+        },
+        "lastname":
+        {
+            "$id": "#/properties/lastname",
+            "type": "string",
+            "title": "The Lastname Schema",
+            "default": "",
+            "examples": [
+                "Yton"
+            ]
+        },
+        "externalId":
+        {
+            "$id": "#/properties/externalId",
+            "type": "string",
+            "title": "The Externalid Schema",
+            "default": "",
+            "examples": [
+                "786YYH7"
+            ]
+        },
+        "dateFormat":
+        {
+            "$id": "#/properties/dateFormat",
+            "type": "string",
+            "title": "The Dateformat Schema",
+            "default": "",
+            "examples": [
+                "dd MMMM yyyy"
+            ]
+        },
+        "locale":
+        {
+            "$id": "#/properties/locale",
+            "type": "string",
+            "title": "The Locale Schema",
+            "default": "",
+            "examples": [
+                "en"
+            ]
+        },
+        "active":
+        {
+            "$id": "#/properties/active",
+            "type": "boolean",
+            "title": "The Active Schema",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "activationDate":
+        {
+            "$id": "#/properties/activationDate",
+            "type": "string",
+            "title": "The Activationdate Schema",
+            "default": "",
+            "examples": [
+                "04 March 2009"
+            ]
+        },
+        "submittedOnDate":
+        {
+            "$id": "#/properties/submittedOnDate",
+            "type": "string",
+            "title": "The Submittedondate Schema",
+            "default": "",
+            "examples": [
+                "04 March 2009"
+            ]
+        },
+        "savingsProductId":
+        {
+            "$id": "#/properties/savingsProductId",
+            "type": "integer",
+            "title": "The Savingsproductid Schema",
+            "default": 0,
+            "examples": [
+                4
+            ]
+        }
+    }
+}

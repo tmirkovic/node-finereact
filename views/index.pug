@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title Finereact Module Demo
+    //link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/5.28.2/jsoneditor.min.css')
+  body
+    h1 Finereact Module Demo
+    p Press one of the buttons below to pick a category
+    button(id="clientButton") Client
+    button(id="loanButton") Loan
+    button(id="loanProductButton") Loan Product
+    br
+    div(id="jsoneditor" style='width: 500px; height: 400px;')
+    button(class="actionButton", action="add") add
+    button(class="actionButton", action="find") find
+    button(class="actionButton", action="findOne") findOne
+    button(class="actionButton", action="template") template
+    button(class="actionButton", action="approve") approve
+    button(class="actionButton", action="reject") reject
+    button(class="actionButton", action="withdraw") withdraw
+    br
+    p Sample Code
+    pre
+        |const finereact = require("node-finereact");
+        |finereact.init({
+        |    url: "https://13.250.150.80/fineract-provider/api/v1/",
+        |    username: "mifos",
+        |    password: "password"
+        |});
+    pre(id="codeArea")
+    br
+    button(id="sendButton") Send
+    br
+    p Response:
+    pre(id="displayArea")
+
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/5.28.2/jsoneditor.min.js")
+    script(type="text/javascript" src="public.js")
