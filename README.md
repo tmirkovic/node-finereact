@@ -1,5 +1,5 @@
 # node-finereact
-A node module for interacting with the[ Apache Finereact API](https://demo.openmf.org/api-docs/apiLive.htm)
+A node module for interacting with the[ Apache Fineract API](https://demo.openmf.org/api-docs/apiLive.htm)
 
 Installation
 ============
@@ -11,11 +11,12 @@ Installation
 Demo Page
 ============
 
-  There's a demo page ([ live here](http://finereacdemo-env.gcmvhsg2s3.us-east-1.elasticbeanstalk.com/) ) that gives the user a simple interface to create commands and send them to a server running Finereact. 
+  There's a demo page ([ live here](http://finereacdemo-env.gcmvhsg2s3.us-east-1.elasticbeanstalk.com/) ) that gives the user a simple interface to create commands and send them to a server running Fineract. 
   
   To run the demo locally
   
     npm run demo
+   You can access the Fineract instance through a Mifos frontend [here](https://13.250.150.80 )
 
 Tests
 ============
@@ -43,7 +44,7 @@ finereact.init({
    password: "password"
 });
 ```
-After initialization you can run commands that interact with the finereact API
+After initialization you can run commands that interact with the Fineract API
 
 ```js
 finereact.clients.find({}).then((response) => {
