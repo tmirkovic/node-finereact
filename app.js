@@ -18,6 +18,7 @@ finereact.init({
 //The hello world of web servers
 const app = express();
 
+let port = process.env.PORT || 3000;
 
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
@@ -28,7 +29,7 @@ app.get("/", (req, res) => res.render("index", {}));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-server.listen(3000, () => {
+server.listen(port, () => {
     console.log("Web server starting");
 });
 
