@@ -3,14 +3,12 @@
 
 const request = require("request");
 
-//request.debug = true;
-
 let url = null;
 
 const auth = {
     user: null,
     pass: null,
-    sendImmediately: true
+    sendImmediately: true,
 };
 
 
@@ -69,6 +67,7 @@ function makeRequest(requestType, options = {}, resolve, reject) {
         url: options.path,
         baseUrl: url,
         auth: auth,
+        strictSSL: false, //todo, fix this
         headers: {
             "Fineract-Platform-TenantId": "default",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
@@ -78,22 +77,19 @@ function makeRequest(requestType, options = {}, resolve, reject) {
     };
 
 
-
+    //the query object can either be parsed into url parameters or sent as json body
     if (options.useParamters === true) {
-        //console.log("options.query:\n", JSON.stringify(options.query, 0, 4));
         let query = options.query;
 
         for (const key in query) {
             let value = query[key];
             if (query.hasOwnProperty(key) && Array.isArray(value)) {
-                //finreact wants array items comma separated
                 query[key] = value.join(",");
             }
         }
         requestOptions.qs = query;
     } else if (options.query) {
         requestOptions.body = JSON.stringify(options.query);
-        //console.log("options.query:\n", JSON.stringify(options.query, 0, 4));
     }
 
     request[operation](requestOptions, (err, res, body) => {

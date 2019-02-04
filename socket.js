@@ -1,4 +1,4 @@
-//Socket connection events
+//Socket connection events, allows user to call finereact functions
 
 "use strict";
 

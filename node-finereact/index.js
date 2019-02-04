@@ -1,9 +1,8 @@
 "use strict";
 
-//todo: fix this
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+//node finereact API module
 
-
+//load wrapper for http request library
 const requests = require("./requests");
 
 exports.init = (options) => {

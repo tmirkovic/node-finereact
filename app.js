@@ -15,24 +15,6 @@ finereact.init({
 });
 
 
-
-/*finereact.clients.find({
-    //sqlSearch: "last_name like %Smith%",
-    limit: 1,
-    //fields: ["accountNo", "lastname"],
-
-    //tenantIdentifier: "default"
-}, {
-
-}).then((response) => {
-    console.log("response:\n", JSON.stringify(response, 0, 4));
-}).catch((err) => {
-    console.log("err:\n", JSON.stringify(err, 0, 4));
-});*/
-
-
-
-
 //The hello world of web servers
 const app = express();
 
@@ -50,5 +32,5 @@ server.listen(3000, () => {
     console.log("Web server starting");
 });
 
-//all the example code is in here
+//Host simple page that allows user to call finereact functions
 require("./socket")(io, finereact);

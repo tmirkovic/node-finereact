@@ -1,5 +1,6 @@
 "use strict";
 
+//code relating to loan product functions
 
 const requests = require("./requests");
 
