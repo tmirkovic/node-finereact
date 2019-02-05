@@ -7,18 +7,32 @@
 const socket = io();
 
 function setGui() {
+
+    if (mode !== "loan" &&
+        (action === "withdraw" || action === "reject" || action === "approve")) {
+        action = "add";
+        $(".actionButton").removeClass("active");
+        $(".actionButton[action='add']").addClass("active");
+    }
+
     editor.set(presets[mode][action]);
 
+    //update sample code
     setCodeView();
 
+    //make sure nothing in the tree is collapsed
     editor.expandAll();
 
+    //hide appropriate buttons
     if (mode === "loan") {
         $(".loanActions").removeClass("hidden");
     } else {
         $(".loanActions").addClass("hidden");
     }
 }
+
+
+
 
 function setCodeView() {
     let data = editor.get();
@@ -29,15 +43,16 @@ function setCodeView() {
         queryHtml = JSON.stringify(data, 0, 4);
     }
 
-    document.getElementById("codeArea").innerHTML = "finereact." + mode + "s." + action + "(" + queryHtml + ").then((response) => {" +
+    let codeHtml = "finereact." + mode + "s." + action + "(" + queryHtml + ").then((response) => {" +
         "\n    //your code here" +
         "\n});";
+
+    $("#codeArea").html(codeHtml);
 }
 
 function getDataFromEditor() {
     presets[mode][action] = editor.get();
 }
-
 
 
 let mode = "client";
@@ -180,41 +195,23 @@ setGui();
 
 
 //event listeners
-document.getElementById("clientButton").addEventListener("click", () => {
+$(".modeButton").click(function() {
+    $(".modeButton").removeClass("active");
+    $(this).addClass("active");
     getDataFromEditor();
-    mode = "client";
+    mode = $(this).attr("mode");
     setGui();
 });
 
-document.getElementById("loanButton").addEventListener("click", () => {
+$(".actionButton").click(function() {
+    $(".actionButton").removeClass("active");
+    $(this).addClass("active");
     getDataFromEditor();
-    mode = "loan";
+    action = $(this).attr("action");
     setGui();
 });
 
-document.getElementById("loanProductButton").addEventListener("click", () => {
-    getDataFromEditor();
-    mode = "loanProduct";
-    setGui();
-});
-
-
-
-
-Array.from(document.getElementsByClassName("actionButton")).forEach(function(element) {
-    element.addEventListener("click", (event) => {
-        getDataFromEditor();
-        action = event.target.getAttribute("action");
-        console.log("action:\n", JSON.stringify(action, 0, 4));
-        setGui();
-
-    });
-});
-
-
-
-document.getElementById("sendButton").addEventListener("click", () => {
-    console.log("editor.get():\n", JSON.stringify(editor.get(), 0, 4));
+$("#sendButton").click(function() {
     socket.emit(mode + "Request", {
         query: editor.get(),
         action: action
@@ -223,5 +220,5 @@ document.getElementById("sendButton").addEventListener("click", () => {
 
 //display server response in GUI
 socket.on("setText", (data) => {
-    document.getElementById("displayArea").innerHTML = JSON.stringify(data, 0, 4);
+    $("#displayArea").html(JSON.stringify(data, 0, 4));
 });

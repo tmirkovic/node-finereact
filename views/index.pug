@@ -9,14 +9,15 @@ html
     div.container
         h1 Finereact Module Demo
         div.row
-            div.col-sm-6
+            div.col-lg-6
                 p Press one of the buttons below to pick a category
-                button(id="clientButton" class="btn-primary") Client
-                button(id="loanButton" class="btn-primary") Loan
-                button(id="loanProductButton" class="btn-primary") Loan Product
+                button(class="modeButton btn-primary active" mode="client") Client
+                button(class="modeButton btn-primary" mode="loan") Loan
+                button(class="modeButton btn-primary" mode="loanProduct") Loan Product
                 br
                 div(id="jsoneditor" style='width: 500px; height: 400px;')
-                button(class="actionButton btn-primary", action="add") add
+                label Action: 
+                button(class="actionButton btn-primary active", action="add") add
                 button(class="actionButton btn-primary", action="find") find
                 button(class="actionButton btn-primary", action="findOne") findOne
                 button(class="actionButton btn-primary", action="template") template
@@ -26,7 +27,7 @@ html
                 br
                 br
                 button(id="sendButton" class="btn-primary") Send To Server
-            div.col-sm-6
+            div.col-lg-6
                 br
                 p Sample Code
                 pre
