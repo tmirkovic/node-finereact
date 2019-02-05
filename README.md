@@ -27,8 +27,8 @@ Tests
 
 
 
-Using
-=====
+Usage
+============
 
 First import the module
 
@@ -55,7 +55,7 @@ All commands except for initialization will always return a promise
 
 
 Clients
-========
+============
 
 
 ### Adding a new client
@@ -69,9 +69,9 @@ Clients
 | dateFormat | string| "dd MMMM yyyy"| yes | The format of the date |
 | locale | string| "en"| yes | The locale |
 | officeId | number| 1| yes | The identifier of the office |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#clients_create)
 
 Example:
-
 ```js
 finereact.clients.add({
     "firstname": "Jane",
@@ -86,8 +86,6 @@ finereact.clients.add({
 });
 ```
 
-
-
 ### Querying For Clients
 
 
@@ -97,6 +95,7 @@ finereact.clients.add({
 | limit | string | 200 | no | Restricts the size of results returned. To override the default and return all entries you must explicitly pass a non-positive integer value for limit e.g. limit=0, or limit=-1 |
 | displayName | string | "John Smith" | no | Search for user by name.| 
 | fields | array|  ["id", "firstname", "lastname"] | no | Restrict result to certain fields |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#clients_list)
 
 Example:
 
@@ -127,6 +126,7 @@ finereact.clients.find({
 | ---- |:----:|:-------:|:-------:|:----------- |
 | id | number | 1 | no | The id of the client you are querying |
 | fields | array|  ["id", "firstname", "lastname"] | yes | Restrict result to certain fields |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#clients_retrieve)
 
 Example:
 
@@ -165,6 +165,7 @@ Loans
 | numberOfRepayments | number| "individual" | yes |  |
 | repaymentEvery | 1| "individual" | yes | |
 | dateFormat | string| "dd MMMM yyyy"| yes | The format of the date |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loans_create)
 
 Example:
 
@@ -204,6 +205,7 @@ finereact.loans.add({
 | limit | string | 200 | no | Restricts the size of results returned. To override the default and return all entries you must explicitly pass a non-positive integer value for limit e.g. limit=0, or limit=-1 |
 | displayName | string | "John Smith" | no | Search for user by name.| 
 | fields | array|  ["id", "firstname", "lastname"] | no | Restrict result to certain fields |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loans_list)
 
 Example:
 
@@ -223,6 +225,7 @@ finereact.loans.find({
 | Name | Type |	Example | Required |	Description |
 | ---- |:----:|:-------:|:-------:|:----------- |
 | id | number | 1 | yes | The id of the loan you are querying |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loans_retrieve)
 
 Example:
 
@@ -247,7 +250,7 @@ finereact.loans.findOne({
 | dateFormat | string| "dd MMMM yyyy"| yes | The format of the date |
 | expectedDisbursementDate | string| "2 February 2019"| yes | When the loan will be disbursed |
 | note | string| "Loan approval note"| no | A note accompaying the approval |
-
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loans_approve)
 
 Example:
 
@@ -276,7 +279,7 @@ finereact.loans.approve({
 | dateFormat | string| "dd MMMM yyyy"| yes | The format of the date |
 | rejectedOnDate | string| "2 February 2019"| yes | When the loan was rejected |
 | note | string| "Loan rejection note"| no | A noet accompaying the rejection |
-
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loans_reject)
 
 Example:
 
@@ -307,7 +310,7 @@ finereact.loans.reject({
 | dateFormat | string| "dd MMMM yyyy"| yes | The format of the date |
 | withdrawnOnDate | string| "2 February 2019"| yes | When the loan was withdrawn |
 | note | string| "Loan withdrawl note"| no | A noet accompaying the withdrawl |
-
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loans_withdraw)
 
 Example:
 
@@ -355,6 +358,7 @@ Loan Products
 | daysInYearType | number | 1| yes |  |
 | locale | number | "en" | yes | The locale |
 | dateFormat | string| "dd MMMM yyyy"| yes | The format of the date |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loanproducts_create)
 
 Example:
 
@@ -395,6 +399,7 @@ finereact.loanProducts.add({
 | ---- |:----:|:-------:|:-------:|:----------- |
 | offset | number | 0 | no | Indicates the result from which pagination starts |
 | limit | string | 200 | no | Restricts the size of results returned. To override the default and return all entries you must explicitly pass a non-positive integer value for limit e.g. limit=0, or limit=-1 |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loanproducts_list)
 
 Example:
 
@@ -415,6 +420,7 @@ finereact.loanProducts.find({
 | Name | Type |	Example | Required |	Description |
 | ---- |:----:|:-------:|:-------:|:----------- |
 | id | number | 1 | no | The id of the loan product you are querying |
+##### [Fineract API Reference](https://demo.openmf.org/api-docs/apiLive.htm#loanproducts_retrieve)
 
 Example:
 
