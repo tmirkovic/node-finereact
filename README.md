@@ -51,7 +51,7 @@ finereact.clients.find({}).then((response) => {
     //your code here
 });
 ```
-All commands except for initialation will always return a promise
+All commands except for initialization will always return a promise
 
 
 Clients
@@ -155,8 +155,8 @@ Loans
 
 | Name | Type |	Example | Required |	Description |
 | ---- |:----:|:-------:|:-------:|:----------- |
-| clientId | number | 1 | yes | t |
-| productId | number | 1 | yes |  |
+| clientId | number | 1 | yes | The id of the clientn associated with this loan |
+| productId | number | 1 | yes |  The loan product id|
 | principal | string | "10,000.00" | yes | | 
 | loanTermFrequency | string| "04 March 2009" | yes |  |
 | loanTermFrequencyType | string| 2 | yes | |
